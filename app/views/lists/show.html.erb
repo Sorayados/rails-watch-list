@@ -1,4 +1,4 @@
-<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('<%= image_path "cinema.jpg"%>');">
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('<%= image_path "cinema.jpg" %>');">
   <div class="container">
     <h2><%= @list.name %></h2>
   </div>
@@ -7,7 +7,7 @@
   <div class="row mt-5">
     <% @list.movies.each do |movie| %>
       <div class="col-4">
-        <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('cinema.jpg')">
+        <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(' <%= movie.poster_url %>')">
           <% bookmark = Bookmark.find_by(list: @list, movie: movie) %>
           <%= movie.title %>
           <%= link_to "X", bookmark_path(bookmark),
